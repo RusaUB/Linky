@@ -4,39 +4,100 @@ import FontText from '../text/FontText';
 import {TypographyColors} from '../../constants/theme';
 import {TouchableOpacity} from 'react-native';
 import GoingList from './GoingList';
-import Icon from 'react-native-vector-icons/Octicons';
+import { Dimensions } from 'react-native';
 
-const CardMain = () => {
+import Icon from 'react-native-vector-icons/Octicons';
+import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+
+const CardMain = ({type = 'main'}) => {
+
+  let width = 280;
+  let titleMarginTop = 3;
+  let flexDirection = '';
+  let horizontalImageWidth = undefined;
+
+
+  if(type=='mini'){
+    width = 220;
+    titleMarginTop = 10;
+  }
+
+  if(type=='horizontal'){
+    flexDirection = 'row';
+    horizontalImageWidth = 100;
+  }
+
+
   return (
     <TouchableOpacity
-      style={{width: 280, borderRadius: 10}}
+      style={{width: width, borderRadius: 10, flexDirection: flexDirection}}
       className="ml-2 shadow p-3 border-gray-50 bg-white">
-      <Image
-        style={{height: 131, width: '100%', borderRadius: 10}}
-        source={require('../../assets/images/bg-japan.jpg')}
-      />
-      <FontText
-        marginTop={10}
-        color={TypographyColors.purple}
-        fontSize={12}
-        fontWeight={'medium'}>
-        SAT,APR 24 • 1:30 PM
-      </FontText>
-      <FontText fontWeight={'bold'} marginTop={3}>
-        Women's Leadership Conference
-      </FontText>
-      <View className="flex-row" style={{alignItems: 'center'}}>
-        <Icon
-          name="location"
-          size={12}
-          style={{marginRight: 5, opacity: 0.4}}
+      <View style={{width: horizontalImageWidth}}>
+        {type == 'mini' ? (
+          <View
+            style={{
+              width: 50,
+              height: 50,
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: 'rgba(253, 255, 252, 0.7)',
+            }}
+            className="absolute z-10 rounded-xl top-2 left-2">
+            <FontText color={'#f07b91'} fontWeight={'bold'}>
+              10
+            </FontText>
+            <FontText fontSize={12} color={'#f07b91'} fontWeight={'bold'}>
+              JUNE
+            </FontText>
+          </View>
+        ) : null}
+        {type == 'mini' ? (
+          <View
+            style={{
+              width: 30,
+              height: 30,
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: 'rgba(253, 255, 252, 0.8)',
+            }}
+            className="absolute z-10 rounded-md top-2 right-2">
+            <MaterialIcon name="bookmark" size={15} color="#f07b91" />
+          </View>
+        ) : null}
+        <Image
+          style={[
+            {width: '100%', borderRadius: 10},
+            type === 'horizontal' ? {height:100} : {height: 141}
+          ]}
+          source={require('../../assets/images/bg-japan.jpg')}
         />
-        <FontText opacity={0.6} fontSize={12} marginTop={3}>
-          53 Bush St • San Francisco, CA
-        </FontText>
       </View>
-      <View className="mt-2">
-        <GoingList />
+      <View style={[type === 'horizontal' ? {flex: 1, marginLeft: 10} : null]}>
+        {type == 'main' || type == 'horizontal' ? (
+          <FontText
+            marginTop={10}
+            color={TypographyColors.purple}
+            fontSize={12}
+            fontWeight={'medium'}>
+            SAT,APR 24 • 1:30 PM
+          </FontText>
+        ) : null}
+        <FontText fontWeight={'bold'} marginTop={titleMarginTop}>
+          Women's Leadership Conference
+        </FontText>
+        <View className="flex-row" style={{alignItems: 'center'}}>
+          <Icon
+            name="location"
+            size={12}
+            style={{marginRight: 5, opacity: 0.4}}
+          />
+          <FontText opacity={0.6} fontSize={12} marginTop={3}>
+            53 Bush St • San Francisco, CA
+          </FontText>
+        </View>
+        <View className="mt-2">
+          <GoingList />
+        </View>
       </View>
     </TouchableOpacity>
   );

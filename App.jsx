@@ -7,9 +7,9 @@ import CardMain from './components/cards/CardMain'
 const App = () => {
   return (
     <SafeAreaView>
-      <CardMain/>
-      <CardMain/>
-      <CardMain/>
+      <CardMain />
+      <CardMain type="mini"/>
+      <CardMain type = 'horizontal'/>
     </SafeAreaView>
   );
 }
