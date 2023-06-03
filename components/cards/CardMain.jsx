@@ -1,13 +1,14 @@
-import {Image, View} from 'react-native';
+import {Image, View, useColorScheme} from 'react-native';
 import React from 'react';
 import FontText from '../text/FontText';
 import {TypographyColors} from '../../constants/theme';
 import {TouchableOpacity} from 'react-native';
 import GoingList from './GoingList';
-import { Dimensions } from 'react-native';
+import { DarkModeColors } from '../../constants/theme';
 
 import Icon from 'react-native-vector-icons/Octicons';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+
 
 const CardMain = ({type = 'main'}) => {
 
@@ -15,6 +16,11 @@ const CardMain = ({type = 'main'}) => {
   let titleMarginTop = 3;
   let flexDirection = '';
   let horizontalImageWidth = undefined;
+
+  colorScheme = useColorScheme();
+  isDarkMode = colorScheme === 'dark'
+
+  console.log(isDarkMode)
 
   if(type=='mini'){
     width = 220;
@@ -32,9 +38,12 @@ const CardMain = ({type = 'main'}) => {
       <View
         style={[
           type === 'horizontal' ? null : {width: width},
+          isDarkMode
+            ? {backgroundColor: DarkModeColors.black}
+            : {backgroundColor: 'white'},
           {borderRadius: 10, flexDirection: flexDirection},
         ]}
-        className="mx-2 shadow p-3 border-gray-50 bg-white">
+        className="mx-2 shadow p-3 border-gray-50">
         <View style={{width: horizontalImageWidth}}>
           {type == 'mini' ? (
             <View
@@ -104,16 +113,24 @@ const CardMain = ({type = 'main'}) => {
               <MaterialIcon name="bookmark" size={20} color="#f07b91" />
             </TouchableOpacity>
           ) : null}
-          <FontText fontWeight={'bold'} marginTop={titleMarginTop}>
+          <FontText
+            fontWeight={'bold'}
+            marginTop={titleMarginTop}
+            color={isDarkMode ? 'white' : null}>
             Women's Leadership Conference
           </FontText>
           <View className="flex-row" style={{alignItems: 'center'}}>
             <Icon
               name="location"
               size={12}
-              style={{marginRight: 5, opacity: 0.4}}
+              style={{marginRight: 5, opacity: isDarkMode ? null : 0.4}}
+              color = {isDarkMode ? DarkModeColors.gray : null}
             />
-            <FontText opacity={0.6} fontSize={12} marginTop={3}>
+            <FontText
+              opacity={isDarkMode ? null : 0.6}
+              fontSize={12}
+              marginTop={3}
+              color={isDarkMode ? DarkModeColors.gray : null}>
               53 Bush St • San Francisco, CA
             </FontText>
           </View>

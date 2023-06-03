@@ -4,12 +4,12 @@ import { SafeAreaView, View } from 'react-native'
 import CardMain from './components/cards/CardMain'
 
 
-const App = () => {
+const App = () => {  
   return (
     <SafeAreaView>
-        <CardMain />
-        <CardMain type="mini" />
-        <CardMain type="horizontal" />
+    <CardMain type='main'></CardMain>
+    <CardMain type='horizontal'></CardMain>
+    <CardMain type='mini'></CardMain>
     </SafeAreaView>
   );
 }
