@@ -1,6 +1,6 @@
 export const TypographyColors = {
-  purple: '#3F38DD',
-  black : '#120D26',
+  purple: '#5669FF',
+  black: '#120D26',
 };
 
 export const DarkModeColors = {

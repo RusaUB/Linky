@@ -1,17 +1,20 @@
 import React from 'react'
-import { SafeAreaView, View } from 'react-native'
 
-import CardMain from './components/cards/CardMain'
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import HomeScreen from './screens/HomeScreen';
 
+const Stack = createNativeStackNavigator();
 
-const App = () => {  
+function App() {
   return (
-    <SafeAreaView>
-    <CardMain type='main'></CardMain>
-    <CardMain type='horizontal'></CardMain>
-    <CardMain type='mini'></CardMain>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} options={{headerShown:false}} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
 export default App;
+

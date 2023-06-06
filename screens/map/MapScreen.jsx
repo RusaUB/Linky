@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const NavigationTitleBar = () => {
+const MapScreen = () => {
   return (
     <View>
-      <Text>NavigationTitleBar</Text>
+      <Text>MapScreen</Text>
     </View>
   )
 }
 
-export default NavigationTitleBar
+export default MapScreen
