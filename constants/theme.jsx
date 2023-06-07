@@ -8,3 +8,7 @@ export const DarkModeColors = {
   backgroundBlack: '2D2D3A',
   gray: '#E5E5E5',
 };
+
+export const Colors = {
+  gray: '#F2F2F2',
+};
