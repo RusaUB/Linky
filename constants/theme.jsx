@@ -11,4 +11,7 @@ export const DarkModeColors = {
 
 export const Colors = {
   gray: '#F2F2F2',
+  orange: '#F59762',
+  green: '#29D697',
+  red: '#F0635A',
 };
