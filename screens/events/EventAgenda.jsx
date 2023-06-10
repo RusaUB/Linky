@@ -3,7 +3,7 @@ import React from 'react';
 import CardInline from '../../components/explore/CardInline';
 import {TypographyColors} from '../../constants/theme';
 import {eventsData} from '../../constants/datas';
-import { Image } from 'react-native';
+import {Image} from 'react-native';
 
 const EventAgenda = ({date}) => {
   const currentDate = new Date().toJSON().slice(0, 10);
@@ -29,11 +29,10 @@ const EventAgenda = ({date}) => {
     ? formatDayAndMonth(date)
     : formatDayAndMonth(currentDate);
 
-
   // Filter eventsData based on the date
   const filteredEventsData = eventsData.filter(item => {
     const eventDate = item.date?.slice(0, 10);
-    return eventDate === date;
+    return eventDate === date || (!date && eventDate === currentDate);
   });
 
   console.log(filteredEventsData);
@@ -54,11 +53,16 @@ const EventAgenda = ({date}) => {
       </View>
 
       <View className="flex-1 ml-2">
-        {filteredEventsData.length > 0? filteredEventsData.map(item => (
-          <CardInline item={item} key={item.key} />
-        )) : 
-        <Image className = 'w-full h-[300]' source={require('../../assets/images/no-event.png')} />
-        }
+        {filteredEventsData.length > 0 ? (
+          filteredEventsData.map(item => (
+            <CardInline item={item} key={item.key} />
+          ))
+        ) : (
+          <Image
+            className="w-full h-[300]"
+            source={require('../../assets/images/no-event.png')}
+          />
+        )}
       </View>
     </View>
   );
