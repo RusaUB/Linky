@@ -10,9 +10,8 @@ export const eventsData = [
   },
   {
     id: 5,
-    image:
-      'https://logowik.com/content/uploads/images/ufc-ultimate-fighting-championship3349.jpg',
-    content: 'Item 1',
+    image: 'https://i.ytimg.com/vi/2m9nUP-e8Co/maxresdefault.jpg',
+    content: 'Item 5',
     location: 'Razzmatazz',
     newEvent: false,
     date: new Date().toJSON(),
@@ -33,7 +32,7 @@ export const eventsData = [
     content: 'Item 3',
     location: 'Razzmatazz',
     newEvent: false,
-    date: new Date(2023, 5, 12).toJSON(),
+    date: new Date(2023, 5, 17).toJSON(),
   },
   {
     id: 4,

@@ -1,25 +1,25 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Touchable, TouchableOpacity, View} from 'react-native'
 
-import ExploreScreen from './explore/ExploreScreen';
-import EventsScreen from './events/EventsScreen';
+
 import AddScreen from './add/AddScreen';
 import MapScreen from './map/MapScreen';
 import ProfileScreen from './profile/ProfileScreen';
+import HomeScreen from './home/HomeScreen';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import { TypographyColors } from '../constants/theme';
+import EventsStack from './events/EventsStack';
 
 
 
 const Tab = createBottomTabNavigator();
 
-function HomeScreen() {
+function HomeStack() {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Explore"
-        component={ExploreScreen}
+        name="HomeScreen"
+        component={HomeScreen}
         headermode="none"
         options={{
           headerShown: false,
@@ -27,16 +27,19 @@ function HomeScreen() {
             <Icon name="compass" color={color} size={size} />
           ),
           tabBarActiveTintColor: TypographyColors.purple,
+          tabBarLabel: () => null,
         }}
       />
       <Tab.Screen
         name="Events"
-        component={EventsScreen}
+        component={EventsStack}
         options={{
           tabBarIcon: ({color, size}) => (
             <Icon name="calendar" color={color} size={(size = 24)} />
           ),
           tabBarActiveTintColor: TypographyColors.purple,
+          headerShown: false,
+          tabBarLabel: () => null,
         }}
       />
       <Tab.Screen
@@ -58,6 +61,7 @@ function HomeScreen() {
             <Icon name="location" color={color} size={(size = 24)} />
           ),
           tabBarActiveTintColor: TypographyColors.purple,
+          tabBarLabel: () => null,
         }}
       />
       <Tab.Screen
@@ -68,9 +72,10 @@ function HomeScreen() {
             <Icon name="person" color={color} size={(size = 24)} />
           ),
           tabBarActiveTintColor: TypographyColors.purple,
+          tabBarLabel: () => null,
         }}
       />
     </Tab.Navigator>
   );
 }
-export default HomeScreen;
+export default HomeStack;

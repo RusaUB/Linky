@@ -5,6 +5,7 @@ import EventCard from '../../components/explore/EventCard'
 import CategoryCard from '../../components/explore/CategoryCard'
 import Octicon from 'react-native-vector-icons/Octicons'
 import CardInline from '../../components/explore/CardInline'
+import SearchBar from '../../components/main/SearchBar'
 
 import { eventsData } from '../../constants/datas'
 
@@ -12,7 +13,10 @@ const ExploreScreen = () => {
   return (
     <SafeAreaView className="bg-white">
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View className="mt-2 mb-1 p-3">
+        <View className="mt-1 mb-1 p-3">
+        <View className = 'mb-5'>
+          <SearchBar />
+        </View>
           <Text className="font-extralight text-xs mb-1">Find events in</Text>
           <LocationCard
             location={'Paris'}

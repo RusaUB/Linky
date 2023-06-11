@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
-import { ScrollView, View } from 'react-native';
+import {ScrollView, View} from 'react-native';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
-import { Colors, TypographyColors } from '../../constants/theme';
+import {Colors, TypographyColors} from '../../constants/theme';
 import EventAgenda from './EventAgenda';
+import SearchBar from '../../components/main/SearchBar';
 
 const EventsScreen = () => {
   const [selected, setSelected] = useState('');
 
-  const today = new Date().toJSON().slice(0,10).toString()
-  console.log(today)
+  const today = new Date().toJSON().slice(0, 10).toString();
 
   return (
     <ScrollView className="bg-white p-3">
@@ -27,7 +27,7 @@ const EventsScreen = () => {
             },
             '2023-06-03': {
               selected: true,
-              marked: true,
+              marked: false,
               selectedColor: Colors.orange,
             },
             [today]: {
@@ -35,14 +35,14 @@ const EventsScreen = () => {
               marked: true,
               selectedColor: TypographyColors.purple,
             },
-            '2023-06-11': {
+            '2023-06-16': {
               selected: true,
-              marked: true,
+              marked: false,
               selectedColor: Colors.green,
             },
             '2023-06-28': {
               selected: true,
-              marked: true,
+              marked: false,
               selectedColor: Colors.red,
             },
           }}

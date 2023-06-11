@@ -35,7 +35,6 @@ const EventAgenda = ({date}) => {
     return eventDate === date || (!date && eventDate === currentDate);
   });
 
-  console.log(filteredEventsData);
 
   return (
     <View className="flex-row">
@@ -54,12 +53,12 @@ const EventAgenda = ({date}) => {
 
       <View className="flex-1 ml-2">
         {filteredEventsData.length > 0 ? (
-          filteredEventsData.map(item => (
-            <CardInline item={item} key={item.key} />
+          filteredEventsData.map((item, index) => (
+            <CardInline item={item} key={item.id || `item-${index}`} />
           ))
         ) : (
           <Image
-            className="w-full h-[300]"
+            style={{width: '100%', height: 300}}
             source={require('../../assets/images/no-event.png')}
           />
         )}
