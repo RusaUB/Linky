@@ -1,17 +1,35 @@
 import React from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 
 import ExploreScreen from '../explore/ExploreScreen';
 import EventsScreen from './EventsScreen';
 import {TypographyColors} from '../../constants/theme';
 
+import SearchBar from '../../components/main/SearchBar';
+import {useNavigation} from '@react-navigation/native';
+
+import { Keyboard } from 'react-native';
+
 const Tab = createMaterialTopTabNavigator();
 
-const EventsStack = () => {
+const EventsStack = ({navigation}) => {
+  navigation = useNavigation();
+
+  const handleSearchPress = () => {
+    navigation.navigate('Search');
+  };
+
   return (
     <SafeAreaView style={{flex: 1}} className="bg-white">
-
+      <View className="mt-2 px-3">
+        <SearchBar
+          onPressIn={() => {
+            Keyboard.dismiss();
+            handleSearchPress();
+          }}
+        />
+      </View>
       <Tab.Navigator
         screenOptions={{
           tabBarIndicatorStyle: {

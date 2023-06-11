@@ -35,7 +35,6 @@ const EventAgenda = ({date}) => {
     return eventDate === date || (!date && eventDate === currentDate);
   });
 
-
   return (
     <View className="flex-row">
       <View

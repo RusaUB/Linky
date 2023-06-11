@@ -6,6 +6,7 @@ import HomeScreen from './screens/HomeStack';
 import {PaperProvider} from 'react-native-paper';
 
 import { DefaultTheme } from 'react-native-paper';
+import SearchScreen from './screens/search/SearchScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,11 @@ function App() {
           <Stack.Screen
             name="Home"
             component={HomeScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Search"
+            component={SearchScreen}
             options={{headerShown: false}}
           />
         </Stack.Navigator>

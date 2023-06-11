@@ -3,7 +3,6 @@ import {ScrollView, View} from 'react-native';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
 import {Colors, TypographyColors} from '../../constants/theme';
 import EventAgenda from './EventAgenda';
-import SearchBar from '../../components/main/SearchBar';
 
 const EventsScreen = () => {
   const [selected, setSelected] = useState('');
