@@ -15,7 +15,7 @@ const SearchScreen = ({navigation: {goBack}}) => {
             <FontAwesome name="angle-left" size={25} />
           </TouchableOpacity>
           <View className="flex-1">
-            <SearchBar/>
+            <SearchBar active={true} autoFocus={true}/>
           </View>
         </View>
       </View>

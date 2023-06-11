@@ -8,6 +8,8 @@ import {PaperProvider} from 'react-native-paper';
 import { DefaultTheme } from 'react-native-paper';
 import SearchScreen from './screens/search/SearchScreen';
 
+import {TransitionPresets} from '@react-navigation/stack';
+
 const Stack = createNativeStackNavigator();
 
 const theme = {
@@ -24,7 +26,7 @@ function App() {
   return (
     <PaperProvider theme={theme}>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{cardOverlayEnabled: true}}>
           <Stack.Screen
             name="Home"
             component={HomeScreen}
@@ -33,7 +35,9 @@ function App() {
           <Stack.Screen
             name="Search"
             component={SearchScreen}
-            options={{headerShown: false}}
+            options={{
+              headerShown: false,
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>

@@ -9,8 +9,6 @@ import {TypographyColors} from '../../constants/theme';
 import SearchBar from '../../components/main/SearchBar';
 import {useNavigation} from '@react-navigation/native';
 
-import { Keyboard } from 'react-native';
-
 const Tab = createMaterialTopTabNavigator();
 
 const EventsStack = ({navigation}) => {
@@ -25,9 +23,9 @@ const EventsStack = ({navigation}) => {
       <View className="mt-2 px-3">
         <SearchBar
           onPressIn={() => {
-            Keyboard.dismiss();
             handleSearchPress();
           }}
+          active={false}
         />
       </View>
       <Tab.Navigator
