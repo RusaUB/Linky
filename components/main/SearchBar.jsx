@@ -30,6 +30,7 @@ const SearchBar = ({onPressIn,autoFocus,active}) => {
             onPressIn={onPressIn}
             returnKeyType="search"
             autoFocus={autoFocus ? true : false}
+            autoCapitalize='none'
           />
         ) : (
           renderedSearch()

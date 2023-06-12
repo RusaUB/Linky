@@ -1,6 +1,8 @@
 import React from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {SafeAreaView, View} from 'react-native';
+import {SafeAreaView, Text, View} from 'react-native';
+import { TouchableOpacity } from 'react-native';
+import { Animated } from 'react-native';
 
 import ExploreScreen from '../explore/ExploreScreen';
 import EventsScreen from './EventsScreen';
@@ -8,11 +10,12 @@ import {TypographyColors} from '../../constants/theme';
 
 import SearchBar from '../../components/main/SearchBar';
 import {useNavigation} from '@react-navigation/native';
+import { Dimensions } from 'react-native';
 
 const Tab = createMaterialTopTabNavigator();
 
-const EventsStack = ({navigation}) => {
-  navigation = useNavigation();
+const EventsStack = () => {
+  const navigation = useNavigation();
 
   const handleSearchPress = () => {
     navigation.navigate('Search');
@@ -33,7 +36,6 @@ const EventsStack = ({navigation}) => {
           tabBarIndicatorStyle: {
             backgroundColor: TypographyColors.purple,
           },
-          tabBarIndicatorContainerStyle: {},
         }}>
         <Tab.Screen name="Explore" component={ExploreScreen} />
         <Tab.Screen name="Calendar" component={EventsScreen} />
@@ -41,5 +43,6 @@ const EventsStack = ({navigation}) => {
     </SafeAreaView>
   );
 };
+
 
 export default EventsStack;

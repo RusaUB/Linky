@@ -5,13 +5,14 @@ import EventCard from '../../components/explore/EventCard'
 import CategoryCard from '../../components/explore/CategoryCard'
 import Octicon from 'react-native-vector-icons/Octicons'
 import CardInline from '../../components/explore/CardInline'
+import { Image } from 'react-native'
 
 import { eventsData } from '../../constants/datas'
+import { VibrancyView } from '@react-native-community/blur'
 
 const ExploreScreen = ({navigation}) => {
   return (
-    <SafeAreaView className="bg-white">
-      <ScrollView showsVerticalScrollIndicator={false}>
+    <ScrollView className="bg-white" showsVerticalScrollIndicator={false}>
         <View className="mt-1 mb-1 p-3">
           <Text className="font-extralight text-xs mb-1">Find events in</Text>
           <LocationCard
@@ -48,8 +49,7 @@ const ExploreScreen = ({navigation}) => {
             <CardInline item={item} key={item.id} />
           ))}
         </View>
-      </ScrollView>
-    </SafeAreaView>
+    </ScrollView>
   );
 }
 
