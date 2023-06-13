@@ -1,28 +1,16 @@
-import { View, Text, Image } from 'react-native'
-import React from 'react'
+import {View, Text, Image} from 'react-native';
+import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { TouchableOpacity,Animated } from 'react-native';
-import { useRef } from 'react';
-import { Divider } from 'react-native-paper';
-import { TypographyColors } from '../../constants/theme';
+import {TouchableOpacity} from 'react-native';
+import {Divider} from 'react-native-paper';
+import {TypographyColors} from '../../constants/theme';
+
 
 const HomeNavbar = () => {
-    const scrollY = useRef(new Animated.Value(0)).current;
-
+  
   return (
-    <Animated.View
-      className="space-y-1"
-      style={{
-        transform: [
-          {
-            translateY: scrollY.interpolate({
-              inputRange: [0, 100],
-              outputRange: [0, -100],
-              extrapolate: 'clamp',
-            }),
-          },
-        ],
-      }}>
+    <View
+      className="space-y-1 h-full">
       <View className="bg-white flex-row justify-between px-3">
         <View className="flex-row items-center">
           <TouchableOpacity className="opacity-50">
@@ -51,8 +39,8 @@ const HomeNavbar = () => {
         </View>
       </View>
       <Divider />
-    </Animated.View>
+    </View>
   );
-}
+};
 
-export default HomeNavbar
+export default HomeNavbar;
