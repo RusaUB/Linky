@@ -8,7 +8,7 @@ import {useRef} from 'react';
 import {Animated} from 'react-native';
 
 const HEADER_HEIGHT = 20;
-const OPACITY_THRESHOLD = 0.5;
+const OPACITY_THRESHOLD = 0.1;
 
 const HomeScreen = () => {
   const scrollY = new Animated.Value(0);
@@ -28,12 +28,16 @@ const HomeScreen = () => {
     const opacity = Number(JSON.stringify(headerOpacity));
 
     if (typeof opacity === 'number' && !isNaN(opacity)) {
-      if (opacity > OPACITY_THRESHOLD) {
+      if (opacity >= 0.5) {
         // Show the header
-        scrollY.setValue(0);
+        if (opacity !== 1) {
+          scrollY.setValue(0);
+        }
       } else {
         // Hide the header
-        scrollY.setValue(HEADER_HEIGHT);
+        if (opacity !== 0) {
+          scrollY.setValue(HEADER_HEIGHT);
+        }
       }
     } else {
       // Handle the case where headerOpacity is not a valid number
