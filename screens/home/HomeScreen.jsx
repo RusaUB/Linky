@@ -3,9 +3,12 @@ import React from 'react';
 import HomeNavbar from './HomeNavbar';
 import EventCard from '../../components/explore/EventCard';
 
+import {useRef} from 'react';
+
 import {Animated} from 'react-native';
 
 const HEADER_HEIGHT = 20;
+const OPACITY_THRESHOLD = 0.5;
 
 const HomeScreen = () => {
   const scrollY = new Animated.Value(0);
@@ -21,14 +24,30 @@ const HomeScreen = () => {
     extrapolate: 'clamp',
   });
 
+  const handleScrollEnd = () => {
+    const opacity = Number(JSON.stringify(headerOpacity));
+
+    if (typeof opacity === 'number' && !isNaN(opacity)) {
+      if (opacity > OPACITY_THRESHOLD) {
+        // Show the header
+        scrollY.setValue(0);
+      } else {
+        // Hide the header
+        scrollY.setValue(HEADER_HEIGHT);
+      }
+    } else {
+      // Handle the case where headerOpacity is not a valid number
+      console.log('Invalid headerOpacity value');
+    }
+  };
+
   return (
     <SafeAreaView className="bg-white flex-1">
-
       <Animated.View
         style={{
           elevation: 10,
           opacity: headerOpacity,
-          height : HEADER_HEIGHT,
+          height: HEADER_HEIGHT,
           transform: [
             {
               translateY: headerY,
@@ -39,11 +58,10 @@ const HomeScreen = () => {
         <HomeNavbar />
       </Animated.View>
 
-
       <Animated.ScrollView
         bounces={false}
         scrollEventThrottle={16}
-        className = 'mt-10'
+        onScrollEndDrag={handleScrollEnd}
         onScroll={Animated.event([
           {
             nativeEvent: {contentOffset: {y: scrollY}},

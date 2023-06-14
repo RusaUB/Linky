@@ -10,7 +10,7 @@ const HomeNavbar = () => {
   
   return (
     <View
-      className="space-y-1 h-full">
+      className="space-y-1 ">
       <View className="bg-white flex-row justify-between px-3">
         <View className="flex-row items-center">
           <TouchableOpacity className="opacity-50">
