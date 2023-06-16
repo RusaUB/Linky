@@ -8,7 +8,7 @@ import {PaperProvider} from 'react-native-paper';
 import { DefaultTheme } from 'react-native-paper';
 import SearchScreen from './screens/search/SearchScreen';
 
-import {TransitionPresets} from '@react-navigation/stack';
+import EventAgenda from './screens/events/modal/EventAgenda';
 import HomeDrawer from './screens/home/HomeDrawer';
 
 const Stack = createNativeStackNavigator();
@@ -40,6 +40,16 @@ function App() {
               headerShown: false,
             }}
           />
+          
+          <Stack.Screen
+            name="EventAgenda"
+            component={EventAgenda}
+            options={{
+              headerShown: false,
+              presentation : 'modal',
+            }}
+          />
+
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>

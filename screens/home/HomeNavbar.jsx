@@ -11,15 +11,15 @@ const HomeNavbar = () => {
   navigation = useNavigation();
   return (
     <View
-      className="space-y-1 ">
+      className="space-y-1 bg-white">
       <View className="bg-white flex-row justify-between px-3">
         <View className="flex-row items-center">
           <TouchableOpacity className="opacity-50" onPress={()=>{navigation.openDrawer()}}>
             <Ionicons name="menu-outline" size={25} />
           </TouchableOpacity>
-          <View className="w-10 h-10">
+          <View className="ml-2 w-[30] h-[30]">
             <Image
-              source={require('../../assets/images/avatar.jpg')}
+              source={require('../../assets/images/avatar-male.jpg')}
               className="h-full w-full rounded-full"
             />
           </View>
