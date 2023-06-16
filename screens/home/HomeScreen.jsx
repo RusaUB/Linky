@@ -5,6 +5,8 @@ import EventCard from '../../components/explore/EventCard';
 
 import {useRef} from 'react';
 
+import { BlurView, VibrancyView } from '@react-native-community/blur';
+
 import {Animated} from 'react-native';
 
 const HEADER_HEIGHT = 20;
@@ -59,7 +61,7 @@ const HomeScreen = () => {
           ],
         }}
         className="absolute mt-10 z-10 w-full">
-        <HomeNavbar />
+          <HomeNavbar />
       </Animated.View>
 
       <Animated.ScrollView

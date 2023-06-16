@@ -4,16 +4,17 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native';
 import {Divider} from 'react-native-paper';
 import {TypographyColors} from '../../constants/theme';
+import { useNavigation } from '@react-navigation/native';
 
 
 const HomeNavbar = () => {
-  
+  navigation = useNavigation();
   return (
     <View
       className="space-y-1 ">
       <View className="bg-white flex-row justify-between px-3">
         <View className="flex-row items-center">
-          <TouchableOpacity className="opacity-50">
+          <TouchableOpacity className="opacity-50" onPress={()=>{navigation.openDrawer()}}>
             <Ionicons name="menu-outline" size={25} />
           </TouchableOpacity>
           <View className="w-10 h-10">

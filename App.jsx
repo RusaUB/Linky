@@ -9,6 +9,7 @@ import { DefaultTheme } from 'react-native-paper';
 import SearchScreen from './screens/search/SearchScreen';
 
 import {TransitionPresets} from '@react-navigation/stack';
+import HomeDrawer from './screens/home/HomeDrawer';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,7 +30,7 @@ function App() {
         <Stack.Navigator screenOptions={{cardOverlayEnabled: true}}>
           <Stack.Screen
             name="Home"
-            component={HomeScreen}
+            component={HomeDrawer}
             options={{headerShown: false}}
           />
           <Stack.Screen
