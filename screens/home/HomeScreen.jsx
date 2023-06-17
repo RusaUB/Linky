@@ -5,9 +5,10 @@ import EventCard from '../../components/explore/EventCard';
 
 import {useRef} from 'react';
 
-import { BlurView, VibrancyView } from '@react-native-community/blur';
+import {BlurView, VibrancyView} from '@react-native-community/blur';
 
 import {Animated} from 'react-native';
+import CalendarWidget from './CalendarWidget';
 
 const HEADER_HEIGHT = 20;
 const OPACITY_THRESHOLD = 0.1;
@@ -49,6 +50,7 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView className="bg-white flex-1">
+      {/* HEADER */}
       <Animated.View
         style={{
           elevation: 10,
@@ -61,9 +63,10 @@ const HomeScreen = () => {
           ],
         }}
         className="absolute mt-10 z-10 w-full">
-          <HomeNavbar />
+        <HomeNavbar />
       </Animated.View>
 
+      {/* BODY */}
       <Animated.ScrollView
         bounces={false}
         scrollEventThrottle={16}
@@ -74,15 +77,9 @@ const HomeScreen = () => {
           },
         ])}
         showsVerticalScrollIndicator={false}>
-        <View className="p-3">
-          <EventCard />
-          <EventCard />
-          <EventCard />
-          <EventCard />
-          <EventCard />
-          <EventCard />
-          <EventCard />
-          <EventCard />
+        <View className="p-3 mt-6">
+          {/* TO DO : GET DAY FROM SERVER-SIDE IN REAL TIME */}
+          <CalendarWidget />
         </View>
       </Animated.ScrollView>
     </SafeAreaView>
