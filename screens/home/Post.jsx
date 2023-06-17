@@ -60,7 +60,9 @@ const renderImageItem = images => {
           onSwipeDown={closeModal}
         />
       </Modal>
-      <View style={{width: '100%', height: 200}}>
+      <View
+        style={{width: '100%', height: 200}}
+        className="rounded-lg overflow-hidden">
         {imageCount <= 2 ? (
           // Render a single row with one or two columns
           <View style={{flexDirection: 'row', flex: 1}}>
@@ -71,7 +73,7 @@ const renderImageItem = images => {
                 className="flex-1">
                 <Image
                   source={{uri: content.url}}
-                  style={{flex: 1, height: '100%'}}
+                  style={{flex: 1, height: '100%', marginRight: imageCount === index+1 ? 0 : 2}}
                 />
               </TouchableOpacity>
             ))}
@@ -83,7 +85,7 @@ const renderImageItem = images => {
               <TouchableOpacity onPress={() => openModal(0)} className="flex-1">
                 <Image
                   source={{uri: images[0].url}}
-                  style={{flex: 1, height: '100%'}}
+                  style={{flex: 1, height: '100%', marginBottom: 2}}
                 />
               </TouchableOpacity>
             </View>
@@ -95,11 +97,11 @@ const renderImageItem = images => {
                   className="flex-1">
                   <Image
                     source={{uri: content.url}}
-                    style={{flex: 1, height: '100%'}}
+                    style={{flex: 1, height: '100%', marginRight: imageCount === index+2 ? 0 : 2}}
                   />
                 </TouchableOpacity>
               ))}
-              {imageCount > 4 ? (
+              {imageCount > 3 ? (
                 <TouchableOpacity
                   onPress={() => openModal(3)}
                   style={{flex: 1}}>
