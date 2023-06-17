@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Colors, TypographyColors} from '../../constants/theme';
 import Swiper from 'react-native-swiper';
@@ -26,7 +26,7 @@ const CalendarWidget = () => {
   return (
     <View className=" flex-1 bg-white rounded-2xl shadow-sm">
       <Swiper
-        className="h-[160]"
+        className="h-[100]"
         autoplayTimeout={10}
         paginationStyle={{
           position: 'absolute',
@@ -65,23 +65,6 @@ const CalendarWidget = () => {
           return (
             <View className="flex-1">
               <View className="justify-between px-3" key={index}>
-                {/* TOP CONTENT */}
-                <View
-                  style={{
-                    backgroundColor: '#EEF0FF',
-                  }}
-                  className="w-full rounded-lg">
-                  <View className="absolute right-5 h-full items-center justify-center opacity-30">
-                    <FontAwesome name="angle-right" size={20} />
-                  </View>
-
-                  <View className="m-2 space-y-1">
-                    <Text className="font-light">Lorem Ipsum ⚽️</Text>
-                    <Text className="font-light text-xs opacity-60">
-                      3:00 pm - 4:00 pm
-                    </Text>
-                  </View>
-                </View>
 
                 <View className="flex-row h-20 pt-3">
                   {/* LEFT CONTENT */}

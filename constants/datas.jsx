@@ -44,3 +44,48 @@ export const eventsData = [
     date: new Date(2023, 5, 29).toJSON(),
   },
 ];
+
+export const postDatas = [
+  {
+    id: 1,
+    userAvatar: '',
+    postContent: [
+      {
+        img: [
+          'https://www.vectornator.io/blog/content/images/2022/05/611ab4846fca351648d90674_Cover-Vector-Art.png',
+        ],
+        video: null,
+      },
+    ],
+  },
+  {
+    id: 2,
+    userAvatar: '',
+    postContent: [
+      {
+        img: [
+          'https://www.coreldraw.com/static/cdgs/images/learn/guide-to-vector-design/what-is-vector-art/img-02.jpg',
+          'https://st.depositphotos.com/52756634/54916/v/450/depositphotos_549160158-stock-illustration-abstract-illustration-mythological-bird-phoenix.jpg',
+        ],
+        video: null,
+      },
+    ],
+  },
+  {
+    id: 3,
+    userAvatar: '',
+    postContent: [
+      {
+        img: [
+          'https://www.vectornator.io/blog/content/images/2022/05/611ab4846fca351648d90674_Cover-Vector-Art.png',
+          'https://blog.spoongraphics.co.uk/wp-content/uploads/2022/03/thumbnail-2.jpg',
+          'https://www.coreldraw.com/static/cdgs/images/learn/guide-to-vector-design/vector-shapes/img-01-cropped.jpg',
+          'https://img.freepik.com/free-vector/vector-illustration-mountain-landscape_1441-72.jpg',
+          'https://www.adobe.com/content/dam/cc/us/en/creativecloud/illustration-adobe-illustration/vector-art/desktop/vector-art_P4_720x350.jpg.img.jpg',
+          'https://qph.cf2.quoracdn.net/main-qimg-4d584ff83ccf24b7d4f9fb0f949f67c4',
+        ],
+        video: null,
+      },
+    ],
+  },
+];

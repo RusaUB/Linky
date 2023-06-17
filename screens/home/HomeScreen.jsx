@@ -9,6 +9,8 @@ import {BlurView, VibrancyView} from '@react-native-community/blur';
 
 import {Animated} from 'react-native';
 import CalendarWidget from './CalendarWidget';
+import Post from './Post';
+import { postDatas } from '../../constants/datas';
 
 const HEADER_HEIGHT = 20;
 const OPACITY_THRESHOLD = 0.1;
@@ -80,6 +82,13 @@ const HomeScreen = () => {
         <View className="p-3 mt-6">
           {/* TO DO : GET DAY FROM SERVER-SIDE IN REAL TIME */}
           <CalendarWidget />
+          <View className="mt-5">
+            {postDatas.map((item, index) => (
+              <View key={index}>
+                <Post item={item}/>
+              </View>
+            ))}
+          </View>
         </View>
       </Animated.ScrollView>
     </SafeAreaView>
