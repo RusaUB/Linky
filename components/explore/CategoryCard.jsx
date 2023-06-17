@@ -1,15 +1,16 @@
 import React from 'react';
-import {Button} from 'react-native-paper';
+import {Touchable, View} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {Button, Text} from 'react-native-paper';
 
-const CategotyCard = ({style}) => {
+const CategotyCard = ({style, title, icon, bgColor}) => {
   return (
-    <Button
-      style={[{width: 100}, style]} // Use spread operator to combine styles
-      icon="music"
-      mode="contained"
-      onPress={() => console.log('Pressed')}>
-      Music
-    </Button>
+    <TouchableOpacity
+      style={[{backgroundColor: bgColor, style}]}
+      className="rounded-full items-center flex-row p-2">
+      {icon}
+      <Text>{title}</Text>
+    </TouchableOpacity>
   );
 };
 
