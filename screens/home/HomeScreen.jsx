@@ -3,9 +3,7 @@ import React from 'react';
 import HomeNavbar from './HomeNavbar';
 import EventCard from '../../components/explore/EventCard';
 
-import {useRef} from 'react';
-
-import {BlurView, VibrancyView} from '@react-native-community/blur';
+import Video from 'react-native-video'
 
 import {Animated} from 'react-native';
 import CalendarWidget from './CalendarWidget';
@@ -85,7 +83,7 @@ const HomeScreen = () => {
           <View className="mt-5">
             {postDatas.map((item, index) => (
               <View key={index}>
-                <Post item={item}/>
+                <Post item={item} />
               </View>
             ))}
           </View>

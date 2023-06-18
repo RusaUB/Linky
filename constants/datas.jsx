@@ -49,6 +49,19 @@ export const postDatas = [
   {
     id: 1,
     userAvatar: '',
+    location: 'Dushanbe',
+    postContent: [
+      {
+        img: null,
+        video:
+          'https://youtu.be/X5ixR_hQA_0?list=PL4jjgxHdfmYabCPLJQCRwOw4oZ0TXuz1k',
+      },
+    ],
+  },
+  {
+    id: 2,
+    userAvatar: '',
+    location: ' 1, Avenue de Bouvines',
     postContent: [
       {
         img: [
@@ -59,8 +72,9 @@ export const postDatas = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     userAvatar: '',
+    location: '21b, Rue Michel le Comte',
     postContent: [
       {
         img: [
@@ -72,8 +86,9 @@ export const postDatas = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     userAvatar: '',
+    location: '21b, Rue Michel le Comte',
     postContent: [
       {
         img: [
