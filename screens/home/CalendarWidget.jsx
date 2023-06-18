@@ -1,4 +1,4 @@
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, ImageBackground} from 'react-native';
 import React from 'react';
 import {Colors, TypographyColors} from '../../constants/theme';
 import Swiper from 'react-native-swiper';
@@ -24,7 +24,7 @@ const CalendarWidget = () => {
 
 
   return (
-    <View className=" flex-1 bg-white rounded-2xl shadow-sm">
+    <ImageBackground blurRadius={90} source={require('../../assets/images/bg-button.png')} className=" flex-1 rounded-2xl shadow-sm">
       <Swiper
         className="h-[100]"
         autoplayTimeout={10}
@@ -65,7 +65,6 @@ const CalendarWidget = () => {
           return (
             <View className="flex-1">
               <View className="justify-between px-3" key={index}>
-
                 <View className="flex-row h-20 pt-3">
                   {/* LEFT CONTENT */}
                   <View className="items-center h-full justify-center w-20 rounded-lg mr-4">
@@ -93,7 +92,7 @@ const CalendarWidget = () => {
           );
         })}
       </Swiper>
-    </View>
+    </ImageBackground>
   );
 };
 

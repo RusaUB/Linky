@@ -1,14 +1,12 @@
-import {View, Text, Image, ScrollView, SafeAreaView} from 'react-native';
+import {View, Text, Image, ScrollView, SafeAreaView, ImageBackground} from 'react-native';
 import React from 'react';
 import HomeNavbar from './HomeNavbar';
-import EventCard from '../../components/explore/EventCard';
-
-import Video from 'react-native-video'
 
 import {Animated} from 'react-native';
 import CalendarWidget from './CalendarWidget';
 import Post from './Post';
 import { postDatas } from '../../constants/datas';
+import { BlurView } from '@react-native-community/blur';
 
 const HEADER_HEIGHT = 20;
 const OPACITY_THRESHOLD = 0.1;
@@ -79,8 +77,10 @@ const HomeScreen = () => {
         showsVerticalScrollIndicator={false}>
         <View className="p-3 mt-6">
           {/* TO DO : GET DAY FROM SERVER-SIDE IN REAL TIME */}
-          <CalendarWidget />
+
+              <CalendarWidget />
           <View className="mt-5">
+
             {postDatas.map((item, index) => (
               <View key={index}>
                 <Post item={item} />

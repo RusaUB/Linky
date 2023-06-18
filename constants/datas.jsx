@@ -50,6 +50,7 @@ export const postDatas = [
     id: 1,
     userAvatar: '',
     location: 'Dushanbe',
+    ticketAvailable: true,
     postContent: [
       {
         img: null,
@@ -62,6 +63,7 @@ export const postDatas = [
     id: 2,
     userAvatar: '',
     location: ' 1, Avenue de Bouvines',
+    ticketAvailable: false,
     postContent: [
       {
         img: [
@@ -75,6 +77,7 @@ export const postDatas = [
     id: 3,
     userAvatar: '',
     location: '21b, Rue Michel le Comte',
+    ticketAvailable: false,
     postContent: [
       {
         img: [
@@ -89,6 +92,7 @@ export const postDatas = [
     id: 4,
     userAvatar: '',
     location: '21b, Rue Michel le Comte',
+    ticketAvailable: false,
     postContent: [
       {
         img: [

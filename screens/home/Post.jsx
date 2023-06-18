@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, Touchable} from 'react-native';
 import React from 'react';
 import {Image} from 'react-native';
 
@@ -17,6 +17,7 @@ import Video from 'react-native-video';
 import Entypo from 'react-native-vector-icons/Entypo';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import { TypographyColors } from '../../constants/theme';
+import GlassyButton from '../../components/glassy/GlassyButton';
 
 const Post = ({item}) => {
   const images = item.postContent
@@ -227,6 +228,11 @@ const Post = ({item}) => {
           {content.img ? renderImageItem(images) : null}
         </React.Fragment>
       ))}
+
+{/* 
+      {item.ticketAvailable ? (
+          <GlassyButton />
+      ) : null} */}
 
       <PostBottomHeader />
     </View>
