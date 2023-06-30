@@ -1,17 +1,38 @@
-import {View, Text, Image, ScrollView, SafeAreaView, ImageBackground} from 'react-native';
+import {
+  View,
+  SafeAreaView,
+} from 'react-native';
 import React from 'react';
 import HomeNavbar from './HomeNavbar';
 
 import {Animated} from 'react-native';
 import CalendarWidget from './CalendarWidget';
 import Post from './Post';
-import { postDatas } from '../../constants/datas';
-import { BlurView } from '@react-native-community/blur';
+import {postDatas} from '../../constants/datas';
+
+import EventsScreen from '../events/EventsScreen';
+
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+
+const Tab = createMaterialTopTabNavigator();
 
 const HEADER_HEIGHT = 20;
-const OPACITY_THRESHOLD = 0.1;
+const OPACITY_THRESHOLD = 0.5;
 
 const HomeScreen = () => {
+  return (
+    <SafeAreaView style={{flex: 1}} className = 'bg-white'>
+      <Tab.Navigator screenOptions={{
+        tabBarStyle:{display:'none'}
+      }}>
+        <Tab.Screen name="HomeComponent" component={HomeScreenComponent} />
+        <Tab.Screen name="CalendarComponent" component={EventsScreen} />
+      </Tab.Navigator>
+    </SafeAreaView>
+  );
+};
+
+const HomeScreenComponent = () => {
   const scrollY = new Animated.Value(0);
   const diffClampScrollY = Animated.diffClamp(scrollY, 0, HEADER_HEIGHT);
   const headerY = diffClampScrollY.interpolate({
@@ -29,7 +50,7 @@ const HomeScreen = () => {
     const opacity = Number(JSON.stringify(headerOpacity));
 
     if (typeof opacity === 'number' && !isNaN(opacity)) {
-      if (opacity >= 0.5) {
+      if (opacity >= OPACITY_THRESHOLD) {
         // Show the header
         if (opacity !== 1) {
           scrollY.setValue(0);
@@ -47,7 +68,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <SafeAreaView className="bg-white flex-1">
+    <View className="bg-white flex-1">
       {/* HEADER */}
       <Animated.View
         style={{
@@ -60,7 +81,7 @@ const HomeScreen = () => {
             },
           ],
         }}
-        className="absolute mt-10 z-10 w-full">
+        className="absolute mt-0 z-10 w-full">
         <HomeNavbar />
       </Animated.View>
 
@@ -78,9 +99,8 @@ const HomeScreen = () => {
         <View className="p-3 mt-6">
           {/* TO DO : GET DAY FROM SERVER-SIDE IN REAL TIME */}
 
-              <CalendarWidget />
+          <CalendarWidget />
           <View className="mt-5">
-
             {postDatas.map((item, index) => (
               <View key={index}>
                 <Post item={item} />
@@ -89,7 +109,7 @@ const HomeScreen = () => {
           </View>
         </View>
       </Animated.ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 

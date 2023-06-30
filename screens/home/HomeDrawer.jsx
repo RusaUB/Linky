@@ -7,6 +7,7 @@ import {Image} from 'react-native';
 
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import SearchBar from '../../components/main/SearchBar';
 
 const Drawer = createDrawerNavigator();
 
@@ -19,7 +20,7 @@ const CustomDrawerItem = ({label, onPress, icon}) => (
   </TouchableOpacity>
 );
 
-const HomeDrawer = () => {
+const HomeDrawer = ({navigation}) => {
   return (
     <Drawer.Navigator
       initialRouteName="Home"
@@ -49,7 +50,10 @@ const CustomDrawerContent = ({navigation}) => {
         />
         <Text className="font-bold text-sm">Username</Text>
       </View>
-      <View className="mt-10">
+      <View className = 'mt-10'>
+        <SearchBar active={false} onPressIn={()=>{navigation.navigate('Search')}} />
+      </View>
+      <View className="mt-5">
         <CustomDrawerItem
           label="My Profile"
           onPress={() => navigateToTabScreen('Profile')}

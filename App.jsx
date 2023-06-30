@@ -2,6 +2,8 @@ import React from 'react'
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {TransitionPresets} from '@react-navigation/stack';
+
 import HomeScreen from './screens/HomeStack';
 import {PaperProvider} from 'react-native-paper';
 
@@ -27,7 +29,7 @@ function App() {
   return (
     <PaperProvider theme={theme}>
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{cardOverlayEnabled: true}}>
+        <Stack.Navigator>
           <Stack.Screen
             name="Home"
             component={HomeDrawer}
@@ -40,16 +42,15 @@ function App() {
               headerShown: false,
             }}
           />
-          
+
           <Stack.Screen
             name="EventAgenda"
             component={EventAgenda}
             options={{
               headerShown: false,
-              presentation : 'modal',
+              presentation: 'modal',
             }}
           />
-
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
