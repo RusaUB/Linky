@@ -74,8 +74,8 @@ const CustomDrawerContent = ({navigation}) => {
           label="Calendar"
           onPress={() => {
             navigation.navigate('Home', {
-              screen: 'Events',
-              params: {screen: 'Calendar'},
+              screen: 'HomeScreen',
+              params: {screen: 'CalendarComponent'},
             });
           }}
           icon={<Feather name="calendar" size={17} color="#767676" />}

@@ -8,8 +8,9 @@ import HomeScreen from './home/HomeScreen';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import { TypographyColors } from '../constants/theme';
-import EventsStack from './events/EventsStack';
 
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import MessageScreen from './message/MessageScreen';
 
 
 const Tab = createBottomTabNavigator();
@@ -31,14 +32,13 @@ function HomeStack() {
         }}
       />
       <Tab.Screen
-        name="Events"
-        component={EventsStack}
+        name="Map"
+        component={MapScreen}
         options={{
           tabBarIcon: ({color, size}) => (
-            <Icon name="calendar" color={color} size={(size = 24)} />
+            <Icon name="location" color={color} size={(size = 24)} />
           ),
           tabBarActiveTintColor: TypographyColors.purple,
-          headerShown: false,
           tabBarLabel: () => null,
         }}
       />
@@ -54,13 +54,18 @@ function HomeStack() {
         }}
       />
       <Tab.Screen
-        name="Map"
-        component={MapScreen}
+        name="Message"
+        component={MessageScreen}
         options={{
           tabBarIcon: ({color, size}) => (
-            <Icon name="location" color={color} size={(size = 24)} />
+              <MaterialCommunityIcons
+                color={color}
+                name="message"
+                size={24}
+              />
           ),
           tabBarActiveTintColor: TypographyColors.purple,
+          headerShown: false,
           tabBarLabel: () => null,
         }}
       />

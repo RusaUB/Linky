@@ -96,11 +96,11 @@ const HomeScreenComponent = () => {
           },
         ])}
         showsVerticalScrollIndicator={false}>
-        <View className="p-3 mt-6">
+        <View className="p-3 mt-8">
           {/* TO DO : GET DAY FROM SERVER-SIDE IN REAL TIME */}
 
           <CalendarWidget />
-          <View className="mt-5">
+          <View className="mt-2">
             {postDatas.map((item, index) => (
               <View key={index}>
                 <Post item={item} />
