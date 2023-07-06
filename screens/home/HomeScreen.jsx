@@ -1,6 +1,7 @@
 import {
   View,
   SafeAreaView,
+  ScrollView,
 } from 'react-native';
 import React from 'react';
 import HomeNavbar from './HomeNavbar';
@@ -8,11 +9,12 @@ import HomeNavbar from './HomeNavbar';
 import {Animated} from 'react-native';
 import CalendarWidget from './CalendarWidget';
 import Post from './Post';
-import {postDatas} from '../../constants/datas';
+import {banners, postDatas} from '../../constants/datas';
 
 import EventsScreen from '../events/EventsScreen';
 
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import Banner from '../../components/main/Banner';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -100,7 +102,18 @@ const HomeScreenComponent = () => {
           {/* TO DO : GET DAY FROM SERVER-SIDE IN REAL TIME */}
 
           <CalendarWidget />
-          <View className="mt-2">
+          <View className = 'my-3'>
+            <ScrollView
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}>
+              <View className="flex-row">
+                {banners.map((item, index) => (
+                  <Banner key={index} item={item} />
+                ))}
+              </View>
+            </ScrollView>
+          </View>
+          <View>
             {postDatas.map((item, index) => (
               <View key={index}>
                 <Post item={item} />

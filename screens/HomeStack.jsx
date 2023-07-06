@@ -7,18 +7,16 @@ import HomeScreen from './home/HomeScreen';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import {TypographyColors} from '../constants/theme';
+import Fontisto from 'react-native-vector-icons/Fontisto'
 
 import MessageScreen from './message/MessageScreen';
 
 import LottieView from 'lottie-react-native';
-import {useEffect, useRef} from 'react';
-
 import HomeAnimation from '../assets/icons/home.json';
 import MessageAnimation from '../assets/icons/chat.json';
-import ProfileAnimation from '../assets/icons/profile-navbar.json';
 import MapAnimation from '../assets/icons/map.json';
 
-import {Animated} from 'react-native';
+import {View} from 'react-native';
 import {Image} from 'react-native';
 
 const Tab = createBottomTabNavigator();
@@ -27,31 +25,46 @@ function HomeStack() {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
-        
-        tabBarIcon: ({size, focused}) => {
+        tabBarIcon: ({size, color, focused}) => {
           let sourceFile;
-          let isIcon = true;
+          let isLottie;
+          let iconName;
+          let customIcon;
+
           switch (route.name) {
             case 'HomeScreen':
               sourceFile = HomeAnimation;
+              iconName = 'home';
               break;
             case 'Map':
               sourceFile = MapAnimation;
+              iconName = 'map-marker-alt';
               break;
             case 'Message':
+              isLottie = true;
               sourceFile = MessageAnimation;
               break;
             case 'Profile':
-              isIcon = false;
+              customIcon = (
+                <View className="w-[30] h-[30]">
+                  <Image
+                    source={require('../assets/images/avatar-male.jpg')}
+                    className="w-full h-full rounded-full"
+                  />
+                </View>
+              );
               break;
           }
-          return isIcon ? (
-            <LottieView source={sourceFile} loop={false} autoPlay={focused} />
-          ) : (
-            <Image
-              source={require('../assets/images/avatar-male.jpg')}
-              className="w-[30] h-[30] rounded-full"
-            />
+          return (
+            <>
+              {isLottie ? (
+                <LottieView source={sourceFile} autoPlay={focused} />
+              ) : null}
+              {customIcon ? customIcon : null}
+              {iconName ? (
+                <Fontisto name={iconName} color={color} size={20} />
+              ) : null}
+            </>
           );
         },
       })}>

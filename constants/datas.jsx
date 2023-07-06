@@ -108,3 +108,19 @@ export const postDatas = [
     ],
   },
 ];
+
+import Banner1 from '../assets/images/banner_1.png';
+import Banner2 from '../assets/images/banner_2.png';
+
+export const banners = [
+  {
+    id: 1,
+    src: Banner1,
+    color: '#F0635A',
+  },
+  {
+    id: 2,
+    src: Banner2,
+    color: '#698699',
+  },
+];
